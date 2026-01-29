@@ -7,7 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Trade extends Model
+final class Trade extends Model
 {
     protected $table = 'trades';
 
@@ -17,16 +17,17 @@ class Trade extends Model
         'side',
         'entry_price',
         'exit_price',
-        'quantity',
-        'profit_loss',
-        'status',
+        'size',
+        'opened_at',
+        'closed_at',
     ];
 
     protected $casts = [
-        'entry_price' => 'decimal:2',
-        'exit_price' => 'decimal:2',
-        'profit_loss' => 'decimal:2',
-        'quantity' => 'integer',
+        'entry_price' => 'float',
+        'exit_price' => 'float',
+        'size' => 'float',
+        'opened_at' => 'datetime',
+        'closed_at' => 'datetime',
     ];
 
     public function user(): BelongsTo

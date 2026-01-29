@@ -8,7 +8,5 @@ use App\Models\Trade;
 
 interface TradeRepositoryInterface
 {
- 
     public function store(array $data): Trade;
-
 }
